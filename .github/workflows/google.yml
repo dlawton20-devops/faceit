@@ -68,14 +68,14 @@ jobs:
       run: |-
         cd $GITHUB_WORKSPACE/cmd/ops-test-app &&
         docker build \
-          --tag "'${{ secrets.$GAR_LOCATION }}'-docker.pkg.dev/'${{ secrets.$PROJECT_ID }}'/'${{ secrets.$REPOSITORY }}'/'${{ secrets.$IMAGE }}':$GITHUB_SHA" \
+          --tag "${{ secrets.$GAR_LOCATION }}-docker.pkg.dev/${{ secrets.$PROJECT_ID }}/${{ secrets.$REPOSITORY }}/${{ secrets.$IMAGE }}:$GITHUB_SHA" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
           .
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-
-        docker push "'${{ secrets.$GAR_LOCATION }}'-docker.pkg.dev/'${{ secrets.$PROJECT_ID }}'/'${{ secrets.$REPOSITORY }}'/'${{ secrets.$IMAGE }}':$GITHUB_SHA"
+        docker push "${{ secrets.$GAR_LOCATION }}-docker.pkg.dev/${{ secrets.$PROJECT_ID }}/${{ secrets.$REPOSITORY }}/${{ secrets.$IMAGE }}:$GITHUB_SHA"
     # Set up kustomize
     - name: Set up Kustomize
       run: |-
