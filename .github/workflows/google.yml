@@ -39,8 +39,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@v1.6
+#     - name: SonarCloud Scan
+#       uses: SonarSource/sonarcloud-github-action@v1.6
 
 
     # Configure Workload Identity Federation and generate an access token.
