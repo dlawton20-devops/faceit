@@ -68,7 +68,7 @@ jobs:
     # Build the Docker image
     - name: Build
       run: |-
-        cd $GITHUB_WORKSPACE &&
+        cd $GITHUB_WORKSPACE/cmd/ops-test-app &&
         docker build \
           --tag "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
