@@ -22,7 +22,7 @@ env:
   GKE_ZONE: ${{ secrets.GKE_ZONE }}    # TODO: update to cluster zone
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   REPOSITORY: test-app # TODO: update to Artifact Registry docker repository
-  IMAGE: static-site
+  IMAGE: faceit
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 jobs:
@@ -73,14 +73,14 @@ jobs:
       run: |-
         cd $GITHUB_WORKSPACE/cmd/ops-test-app &&
         docker build \
-          --tag "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA" \
+          --tag "eu.gcr.io/dl-project-354114/test-app/$IMAGE:$GITHUB_SHA" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
           .
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-
-        docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
+        docker push eu.gcr.io/dl-project-354114/test-app/$IMAGE:$GITHUB_SHA
     # Set up kustomize
     - name: Set up Kustomize
       run: |-
