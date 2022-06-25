@@ -80,6 +80,7 @@ jobs:
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-
+        gcloud auth configure-docker --project $PROJECT_ID &&
         docker push eu.gcr.io/dl-project-354114/test-app/$IMAGE:$GITHUB_SHA
     # Set up kustomize
     - name: Set up Kustomize
