@@ -38,6 +38,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+      
+    - uses: cschleiden/replace-tokens@v1
+      with:
+        tokenPrefix: '{'
+        tokenSuffix: '}'
+        files: '["**/*.yaml"]'
+      env:
+        CDN: https://somecdn.com/...
 
 #     - name: SonarCloud Scan
 #       uses: SonarSource/sonarcloud-github-action@v1.6
@@ -90,8 +98,9 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        # replacing the image name in the k8s template
-        ./kustomize edit set image LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA
-        ./kustomize build . | kubectl apply -f -
-        kubectl rollout status deployment/$DEPLOYMENT_NAME
-        kubectl get services -o wide
+          gcloud container clusters get-credentials dl-project-354114-gke --region europe-west2 --project dl-project-354114 && cd $GITHUB_WORKSPACE/kubernetes/ && kubectl apply -f deployment.yaml
+#         # replacing the image name in the k8s template
+#         ./kustomize edit set image LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA
+#         ./kustomize build . | kubectl apply -f -
+#         kubectl rollout status deployment/$DEPLOYMENT_NAME
+#         kubectl get services -o wide
