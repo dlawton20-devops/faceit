@@ -98,7 +98,7 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-          gcloud container clusters get-credentials dl-project-354114-gke --region europe-west2 --project dl-project-354114 && cd $GITHUB_WORKSPACE/kubernetes/ && kubectl apply -f deployment.yaml
+          gcloud container clusters get-credentials dl-project-354114-gke --region europe-west2 --project dl-project-354114 && cd $GITHUB_WORKSPACE/kubernetes/ && kubectl apply -f newdeployment.yaml
 #         # replacing the image name in the k8s template
 #         ./kustomize edit set image LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA
 #         ./kustomize build . | kubectl apply -f -
