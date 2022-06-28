@@ -49,7 +49,7 @@ jobs:
         WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}
         
     - name: Terraform Refresh
-      run: cd ${{env.WORKING_DIRECTORY}} && terraform refresh -var gcp_auth_file="${{env.GCP_CREDENTIALS}}"
+      run: cd ${{env.WORKING_DIRECTORY}} && terraform apply -refresh-only -auto-approve -var gcp_auth_file="${{env.GCP_CREDENTIALS}}" 
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
         WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}      
