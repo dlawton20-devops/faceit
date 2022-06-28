@@ -92,7 +92,7 @@ jobs:
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-
-        gcloud auth configure-docker --project $PROJECT_ID &&
+        gcloud auth configure-docker --project $PROJECT_ID --quiet &&
         docker push eu.gcr.io/faceitdltest/test-app/$IMAGE:$GITHUB_SHA
 
     # Deploy the Docker image to the GKE cluster
