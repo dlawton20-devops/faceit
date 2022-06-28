@@ -1,19 +1,19 @@
 variable "location_id" {
-    default = "europe-west2"
+    default = "#{LOCATION_ID}#"
 }
 variable "project" {
-    default = "dl-test-354519"
+    default = "#{PROJECT}#"
 }
 variable "database_version" {
-    default = "POSTGRES_14"
+    default = "#{DB_VERSION}#"
 }
 
 variable "name" {
-    default = "faceit-test"
+    default = "#{NAME}#"
 }
 variable "zone" {
-    default = "europe-west2-a"
+    default = "#{ZONE}#"
 }
 variable "location" {
-    default = "europe-west2"
+    default = "#{LOCATION}#"
 }
