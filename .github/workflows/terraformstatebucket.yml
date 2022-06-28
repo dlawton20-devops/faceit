@@ -2,6 +2,20 @@ name: 'Terraform State Bucket Creation'
 
 on: workflow_dispatch
 
+env:
+  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  GAR_LOCATION: europe-west2 # TODO: update region of the Artifact Registry
+  GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}    # TODO: update to cluster name
+  GKE_ZONE: ${{ secrets.GKE_ZONE }}    # TODO: update to cluster zone
+  DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
+  REPOSITORY: test-app # TODO: update to Artifact Registry docker repository
+  IMAGE: faceit
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  PROJECT: ${{ secrets.PROJECT }}
+  LOCATION: ${{ secrets.LOCATION }}
+  BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+
+
 jobs:
   terraform:
     name: 'Terraform'
