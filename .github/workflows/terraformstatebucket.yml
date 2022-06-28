@@ -39,6 +39,8 @@ jobs:
         LOCATION: ${{ secrets.LOCATION }}
         BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
 
+    - name: echo 
+      run: cd ${{env.WORKING_DIRECTORY}} && cat terraform.tfvars
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
