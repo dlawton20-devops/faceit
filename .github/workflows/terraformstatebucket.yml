@@ -37,7 +37,7 @@ jobs:
       with:
         tokenPrefix: '{'
         tokenSuffix: '}'
-        files: '[variables.tf]'
+        files: '["variables.tf"]'
       env:
         PROJECT: faceitdltest
         LOCATION: europe-west2
@@ -47,7 +47,7 @@ jobs:
       with:
         tokenPrefix: '{'
         tokenSuffix: '}'
-        files: '[terraform.tfvars]'
+        files: '["terraform.tfvars"]'
       env:
         PROJECT: faceitdltest
         LOCATION: europe-west2
