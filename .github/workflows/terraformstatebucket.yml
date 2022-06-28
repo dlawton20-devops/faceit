@@ -23,7 +23,7 @@ jobs:
       with:
         tokenPrefix: '{'
         tokenSuffix: '}'
-        files: '["**/*.tf"]'
+        files: '["*.tf"]'
       env:
         PROJECT: ${{ secrets.PROJECT }}
         LOCATION: ${{ secrets.LOCATION }}
@@ -33,7 +33,7 @@ jobs:
       with:
         tokenPrefix: '{'
         tokenSuffix: '}'
-        files: '["**/*.tfvars]'
+        files: '[*.tfvars]'
       env:
         PROJECT: ${{ secrets.PROJECT }}
         LOCATION: ${{ secrets.LOCATION }}
