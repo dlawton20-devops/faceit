@@ -10,10 +10,6 @@ resource "random_id" "network_name_suffix" {
   byte_length = 4
 }
 
-provider "google" {
-  project = var.project_id
-  region  = var.region
-}
 
 # VPC
 resource "google_compute_network" "vpc" {
