@@ -39,9 +39,9 @@ jobs:
         tokenSuffix: '}'
         files: '["$GITHUB_WORKSPACE/terraform/statebucket/variables.tf"]'
       env:
-        PROJECT: ${{ secrets.PROJECT }}
-        LOCATION: ${{ secrets.LOCATION }}
-        BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+        PROJECT: faceitdltest
+        LOCATION: europe-west2
+        BUCKET_NAME: dltest12345
         
     - uses: cschleiden/replace-tokens@v1
       with:
@@ -49,9 +49,9 @@ jobs:
         tokenSuffix: '}'
         files: '["$GITHUB_WORKSPACE/terraform/statebucket/terraform.tfvars"]'
       env:
-        PROJECT: ${{ secrets.PROJECT }}
-        LOCATION: ${{ secrets.LOCATION }}
-        BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+        PROJECT: faceitdltest
+        LOCATION: europe-west2
+        BUCKET_NAME: dltest12345
 
     - name: echo 
       run: cd ${{env.WORKING_DIRECTORY}} && cat terraform.tfvars
