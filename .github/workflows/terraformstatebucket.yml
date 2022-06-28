@@ -33,6 +33,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - uses: vafinvr/template-env-action@master
+      env:
+        PROJECT: ${{ secrets.PROJECT }}
+        LOCATION: ${{ secrets.LOCATION }}
+        BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+      with:
+        filename: cd ${{env.WORKING_DIRECTORY}}/terraform.tfvars
+        
+        
     - uses: cschleiden/replace-tokens@v1
       with:
         tokenPrefix: '{'
