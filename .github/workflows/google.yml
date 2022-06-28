@@ -85,7 +85,7 @@ jobs:
       run: |-
         cd $GITHUB_WORKSPACE/cmd/ops-test-app &&
         docker build \
-          --tag "eu.gcr.io/dl-project-354114/test-app/$IMAGE:$GITHUB_SHA" \
+          --tag "eu.gcr.io/faceitdltest/test-app/$IMAGE:$GITHUB_SHA" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
           .
