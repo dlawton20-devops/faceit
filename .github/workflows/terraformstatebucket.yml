@@ -23,7 +23,7 @@ jobs:
       with:
         tokenPrefix: '{'
         tokenSuffix: '}'
-        files: '["**/statebucket/*.tf"]'
+        files: '["**/terraform/statebucket/*.tf"]'
       env:
         PROJECT: ${{ secrets.PROJECT }}
         LOCATION: ${{ secrets.LOCATION }}
@@ -33,11 +33,11 @@ jobs:
       with:
         tokenPrefix: '{'
         tokenSuffix: '}'
-        files: '["**/statebucket/*.tfvars]'
-#       env:
-#         PROJECT: ${{ secrets.PROJECT }}
-#         LOCATION: ${{ secrets.LOCATION }}
-#         BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+        files: '["**/terraform/statebucket/*.tfvars]'
+      env:
+        PROJECT: ${{ secrets.PROJECT }}
+        LOCATION: ${{ secrets.LOCATION }}
+        BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
 
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
