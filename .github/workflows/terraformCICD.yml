@@ -23,18 +23,18 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - uses: cschleiden/replace-tokens@v1
-      with:
-        tokenPrefix: '{'
-        tokenSuffix: '}'
-        files: '[$GITHUB_WORKSPACE/terraform/*.tf", $GITHUB_WORKSPACE/terraform/*.tfvars]'
-      env:
-        PROJECT: ${{ secrets.PROJECT }}
-        LOCATION: ${{ secrets.LOCATION }}
-        BUCKET_NAME: ${{ secrets.BUCKET }}
-        NAME: ${{ secrets.NAME }}
-        DB_VERSION: ${{ secrets.DB_VERSION }}
-        ZONE: ${{secrets.ZONE}}
+#     - uses: cschleiden/replace-tokens@v1
+#       with:
+#         tokenPrefix: '{'
+#         tokenSuffix: '}'
+#         files: '[$GITHUB_WORKSPACE/terraform/*.tf", $GITHUB_WORKSPACE/terraform/*.tfvars]'
+#       env:
+#         PROJECT: ${{ secrets.PROJECT }}
+#         LOCATION: ${{ secrets.LOCATION }}
+#         BUCKET_NAME: ${{ secrets.BUCKET }}
+#         NAME: ${{ secrets.NAME }}
+#         DB_VERSION: ${{ secrets.DB_VERSION }}
+#         ZONE: ${{secrets.ZONE}}
         
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
