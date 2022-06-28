@@ -17,5 +17,21 @@ spec:
       containers:
       - name: test-app
         image: eu.gcr.io/dl-project-354114/test-app:latest
+        env:
+        - name: POSTGRESQL_DBNAME
+          value: "postgrestest"
+        - name: POSTGRESQL_HOST
+          value: "10.193.112.3"
+        - name: POSTGRESQL_PASSWORD
+          value: "mysecretpassword"
+        - name: POSTGRESQL_PORT
+          value: "5432"
+        - name: POSTGRESQL_USER
+          value: "postgres"
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m

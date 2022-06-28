@@ -1,9 +1,8 @@
-# Variables for App Engine application
 variable "location_id" {
     default = "europe-west2"
 }
 variable "project" {
-    default = "leafy-bond-354018"
+    default = "dl-test-354519"
 }
 variable "database_version" {
     default = "POSTGRES_14"
@@ -12,6 +11,9 @@ variable "database_version" {
 variable "name" {
     default = "faceit-test"
 }
-variable "region" {
+variable "zone" {
+    default = "europe-west2-a"
+}
+variable "location" {
     default = "europe-west2"
 }

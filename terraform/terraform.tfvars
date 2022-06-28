@@ -1,7 +1,7 @@
-# Variables for App Engine application
+project_id = "dl-test-354519"
+region     = "europe-west2"
 location_id   = "europe-west2"
-project = "dl-project-354114"
-#project_id = "dl-project-354114"
+project = "dl-test-354519"
 name             = "faceit-test"
 database_version = "POSTGRES_14"
-#cloud_sql_region = "europe-west2"
+zone = "europe-west2"
