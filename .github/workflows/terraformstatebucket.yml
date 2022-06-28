@@ -39,7 +39,7 @@ jobs:
         LOCATION: ${{ secrets.LOCATION }}
         BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
       with:
-        filename: cd $GITHUB_WORKSPACE/terraform/statebucket/terraform.tfvars
+        filename: $GITHUB_WORKSPACE/terraform/statebucket/terraform.tfvars
         
         
     - uses: cschleiden/replace-tokens@v1
