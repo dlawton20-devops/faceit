@@ -26,10 +26,10 @@ This will deploy a Storage Bucket in GCP for the state file. To deploy use the p
 #### Deploy GCP Services for Application
 Once the state file is deployed, and all variables need updated in 'faceit/terraform/terraform.tfvars' for deployment of GCP infastructure then terraform will deploy several services in GCP for the application:
 
--- GKE Google Kubernetes Engine - Cluster will be deployed for the application kubernetes will allow us to deploy and scale our application for more users.
--- GCR Google Container Registry - This will store our docker images with the build application, which will be then deployed into GKE.
--- Cloud SQL - Postgres DB will be deployed with settings that allow for connection to the application in Kubernetes Cluster via a Private VPC.
--- VPC network - a private network for connectivity between the cluster application and DB.
+- GKE Google Kubernetes Engine - Cluster will be deployed for the application kubernetes will allow us to deploy and scale our application for more users.
+- GCR Google Container Registry - This will store our docker images with the build application, which will be then deployed into GKE.
+- Cloud SQL - Postgres DB will be deployed with settings that allow for connection to the application in Kubernetes Cluster via a Private VPC.
+- VPC network - a private network for connectivity between the cluster application and DB.
 
 To deploy use the pipeline in Github Actions called: 'Terraform CI/CD' which triggers off a PR/Changes into the main branch. This pipeline will deploy all infrastructure required for the application to work. 
 
