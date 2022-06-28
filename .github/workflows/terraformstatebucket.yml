@@ -54,11 +54,11 @@ jobs:
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
-      run: terraform fmt -check
+      run: cd ${{env.WORKING_DIRECTORY}} &&  terraform fmt -check
 
 #     # Generates an execution plan for Terraform
 #     - name: Terraform Plan
-#       run: terraform plan
+#       run: cd ${{env.WORKING_DIRECTORY}} && terraform plan
 #       env:
 #         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
 #         WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}
@@ -67,7 +67,7 @@ jobs:
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
 #       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve
+      run: cd ${{env.WORKING_DIRECTORY}} && terraform apply -auto-approve
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
         WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}
