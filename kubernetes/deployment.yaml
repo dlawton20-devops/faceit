@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testapp-deployment
+  labels:
+    app: test-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-app
+  template:
+    metadata:
+      labels:
+        app: test-app
+    spec:
+      containers:
+      - name: test-app
+        image: eu.gcr.io/faceitdltest/test-app/faceit:latest
+        env:
+        - name: POSTGRESQL_DBNAME
+          value: "faceittestdl"
+        - name: POSTGRESQL_HOST
+          value: "10.208.144.3"
+        - name: POSTGRESQL_PASSWORD
+          value: "mysecretpassword"
+        - name: POSTGRESQL_PORT
+          value: "5432"
+        - name: POSTGRESQL_USER
+          value: "postgres"
+        ports:
+        - containerPort: 80
+#         resources:
+#           limits:
+#             cpu: 500m
+#           requests:
+#             cpu: 200m
