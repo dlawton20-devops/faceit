@@ -48,8 +48,8 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
         WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}
         
-    - name: Terraform Init
-      run: cd ${{env.WORKING_DIRECTORY}} && terraform refresh
+    - name: Terraform Refresh
+      run: cd ${{env.WORKING_DIRECTORY}} && terraform refresh -var gcp_auth_file="${{env.GCP_CREDENTIALS}}"
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
         WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}      
