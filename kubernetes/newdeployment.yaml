@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: test-app
-        image: eu.gcr.io/faceitdltest/test-app:latest
+        image: eu.gcr.io/faceitdltest/test-app/faceit:latest
         env:
         - name: POSTGRESQL_DBNAME
           value: "faceittestdl"
