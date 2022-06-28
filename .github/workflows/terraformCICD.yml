@@ -47,6 +47,13 @@ jobs:
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
         WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}
+        
+    - name: Terraform Init
+      run: cd ${{env.WORKING_DIRECTORY}} && terraform refresh
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+        WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}      
+        
 
 #     # Checks that all Terraform configuration files adhere to a canonical format
 #     - name: Terraform Format
