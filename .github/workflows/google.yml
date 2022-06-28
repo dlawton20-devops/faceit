@@ -43,9 +43,13 @@ jobs:
       with:
         tokenPrefix: '{'
         tokenSuffix: '}'
-        files: '["**/*.yaml"]'
+        files: '[$GITHUB_WORKSPACE/kubernetes/*.yaml"]'
       env:
-        CDN: https://somecdn.com/...
+        POSTGRESQL_DBNAME: ${{secret.POSTGRESQL_DBNAME}}
+        POSTGRESQL_HOST: ${{secret.POSTGRESQL_HOST}}
+        POSTGRESQL_PASSWORD: ${{secret.POSTGRESQL_PASSWORD}}
+        POSTGRESQL_PORT: ${{secret.POSTGRESQL_PORT}}
+        POSTGRESQL_USER: ${{secret.POSTGRESQL_USER}}
 
 #     - name: SonarCloud Scan
 #       uses: SonarSource/sonarcloud-github-action@v1.6
