@@ -23,7 +23,7 @@ jobs:
       with:
         tokenPrefix: '{'
         tokenSuffix: '}'
-        files: '[$GITHUB_WORKSPACE/terraform/statebucket/*.tf"]'
+        files: '["**/statebucket/*.tf"]'
       env:
         PROJECT: ${{ secrets.PROJECT }}
         LOCATION: ${{ secrets.LOCATION }}
@@ -33,7 +33,7 @@ jobs:
       with:
         tokenPrefix: '{'
         tokenSuffix: '}'
-        files: '[$GITHUB_WORKSPACE/terraform/statebucket/*.tfvars]'
+        files: '["**/statebucket/*.tfvars]'
       env:
         PROJECT: ${{ secrets.PROJECT }}
         LOCATION: ${{ secrets.LOCATION }}
