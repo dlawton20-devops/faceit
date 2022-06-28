@@ -39,17 +39,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       
-    - uses: cschleiden/replace-tokens@v1
-      with:
-        tokenPrefix: '{'
-        tokenSuffix: '}'
-        files: '[$GITHUB_WORKSPACE/kubernetes/*.yaml"]'
-      env:
-        POSTGRESQL_DBNAME: ${{secret.POSTGRESQL_DBNAME}}
-        POSTGRESQL_HOST: ${{secret.POSTGRESQL_HOST}}
-        POSTGRESQL_PASSWORD: ${{secret.POSTGRESQL_PASSWORD}}
-        POSTGRESQL_PORT: ${{secret.POSTGRESQL_PORT}}
-        POSTGRESQL_USER: ${{secret.POSTGRESQL_USER}}
+#     - uses: cschleiden/replace-tokens@v1
+#       with:
+#         tokenPrefix: '{'
+#         tokenSuffix: '}'
+#         files: '[$GITHUB_WORKSPACE/kubernetes/*.yaml"]'
+#       env:
+#         POSTGRESQL_DBNAME: ${{secret.POSTGRESQL_DBNAME}}
+#         POSTGRESQL_HOST: ${{secret.POSTGRESQL_HOST}}
+#         POSTGRESQL_PASSWORD: ${{secret.POSTGRESQL_PASSWORD}}
+#         POSTGRESQL_PORT: ${{secret.POSTGRESQL_PORT}}
+#         POSTGRESQL_USER: ${{secret.POSTGRESQL_USER}}
 
 #     - name: SonarCloud Scan
 #       uses: SonarSource/sonarcloud-github-action@v1.6
