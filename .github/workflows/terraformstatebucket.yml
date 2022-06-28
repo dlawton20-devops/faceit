@@ -19,6 +19,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - uses: cschleiden/replace-tokens@v1
+      with:
+        tokenPrefix: '{'
+        tokenSuffix: '}'
+        files: '[$GITHUB_WORKSPACE/terraform/statebucket/*.tf", $GITHUB_WORKSPACE/terraform/statebucket/*.tfvars]'
+      env:
+        PROJECT: ${{ secrets.PROJECT }}
+        LOCATION: ${{ secrets.LOCATION }}
+        BUCKET_NAME: ${{ secrets.BUCKET }}
+
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
