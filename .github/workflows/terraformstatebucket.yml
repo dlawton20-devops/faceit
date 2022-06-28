@@ -52,9 +52,9 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
         WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}
 
-    # Checks that all Terraform configuration files adhere to a canonical format
-    - name: Terraform Format
-      run: cd ${{env.WORKING_DIRECTORY}} &&  terraform fmt -check
+#     # Checks that all Terraform configuration files adhere to a canonical format
+#     - name: Terraform Format
+#       run: cd ${{env.WORKING_DIRECTORY}} &&  terraform fmt -check
 
 #     # Generates an execution plan for Terraform
 #     - name: Terraform Plan
