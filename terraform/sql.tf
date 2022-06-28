@@ -19,7 +19,7 @@ resource "google_sql_database_instance" "database" {
 
 resource "google_sql_user" "users" {
 project = var.project
-name = "postgrestest"
+name = "postgres-test"
 instance = "private-instance-${random_id.db_name_suffix.hex}"
 host = "%"
 password = "mysecretpassword"
