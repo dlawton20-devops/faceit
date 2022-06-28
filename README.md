@@ -17,7 +17,10 @@ We will need a GCP Service Account with Storage Admin (roles/storage.admin) perm
 #### Cloud Storage API enabled
 Also, we will need the Google Cloud Storage API enabled in GCP via the console.
 
-#### Update Github Actions Secrets for pipeline execution
+#### Update variables for pipeline execution
+Normally for managing variables I would use either github secrets and token replacement for the variables or hashicorp vault but for speed i've hardcode the values (Bad practice) 
+The variables need updating in the following place 'faceit/terraform/statebucket/terraform.tfvars' to reference your gcp project information and also change the Github actions variable 'GCP_CREDENTIALS' for your service account json value. 
+
 
 
 
