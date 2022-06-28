@@ -29,7 +29,15 @@ jobs:
         LOCATION: ${{ secrets.LOCATION }}
         BUCKET_NAME: ${{ secrets.BUCKET }}
         
-
+    - uses: cschleiden/replace-tokens@v1
+      with:
+        tokenPrefix: '{'
+        tokenSuffix: '}'
+        files: '["**/statebucket/terraform.tfvars]'
+      env:
+        PROJECT: ${{ secrets.PROJECT }}
+        LOCATION: ${{ secrets.LOCATION }}
+        BUCKET_NAME: ${{ secrets.BUCKET }}
 
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
@@ -53,6 +61,7 @@ jobs:
       run: terraform plan
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+        WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}
 
       # On push to main, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
@@ -61,3 +70,4 @@ jobs:
       run: terraform apply -auto-approve
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+        WORKING_DIRECTORY: ${{env.WORKING_DIRECTORY}}
