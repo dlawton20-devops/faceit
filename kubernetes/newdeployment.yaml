@@ -19,15 +19,15 @@ spec:
         image: eu.gcr.io/dl-project-354114/test-app:latest
         env:
         - name: POSTGRESQL_DBNAME
-          value: "postgrestest"
+          value: "#{POSTGRESQL_DBNAME}#"
         - name: POSTGRESQL_HOST
-          value: "10.193.112.3"
+          value: "#{POSTGRESQL_HOST}#"
         - name: POSTGRESQL_PASSWORD
-          value: "mysecretpassword"
+          value: "#{POSTGRESQL_PASSWORD}#"
         - name: POSTGRESQL_PORT
-          value: "5432"
+          value: "#{POSTGRESQL_PORT}#"
         - name: POSTGRESQL_USER
-          value: "postgres"
+          value: "#{POSTGRESQL_USER}#"
         ports:
         - containerPort: 80
         resources:
