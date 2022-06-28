@@ -27,7 +27,7 @@ jobs:
       env:
         PROJECT: ${{ secrets.PROJECT }}
         LOCATION: ${{ secrets.LOCATION }}
-        BUCKET_NAME: ${{ secrets.BUCKET }}
+        BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
         
     - uses: cschleiden/replace-tokens@v1
       with:
